@@ -1,5 +1,55 @@
-<%= @fire.maker %>
-<%= @fire.model %>
-<%= link_to "Edit this fire", edit_fire_path(@fire) %> |
-  <%= link_to "Back to fires", fires_path %>
-  <%= button_to "Destroy this fire", @fire, method: :delete %>
+
+  <!-- app/views/products/show.html.erb -->
+<div class="pokemon-card-container">
+  <div class="pokemon-card">
+    <!-- Cabeçalho estilo Pokémon -->
+    <div class="card-header">
+      <h1 class="product-name"><%= @fire.model %></h1>
+      <div class="hp-badge">
+        <span class="hp-value">ID: <%= @fire.id %></span>
+      </div>
+    </div>
+
+    <!-- Área da imagem -->
+    <div class="card-image-container">
+      <%= image_tag(@random_image, class: "product-image") %>
+    </div>
+
+    <!-- Detalhes do produto -->
+    <div class="card-details">
+      <div class="detail-row">
+        <span class="detail-label">Marca:</span>
+        <span class="detail-value brand-badge"><%= @fire.maker %></span>
+      </div>
+
+      <div class="detail-row">
+        <span class="detail-label">Comprado em:</span>
+        <span class="detail-value"><%= @fire.date %></span>
+      </div>
+
+      <!-- Você pode adicionar mais atributos aqui -->
+      <div class="detail-row">
+        <span class="detail-label">Código:</span>
+        <span class="detail-value"><%= @fire.id %></span>
+      </div>
+    </div>
+
+    <!-- Rodapé estilo Pokémon -->
+    <div class="card-footer">
+      <div class="footer-text">
+        <%= "Produto ##{@fire.id} - #{@fire.maker}" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão de voltar -->
+  <div class="back-container">
+    <%= link_to 'Voltar para o catálogo', root_path, class: 'back-button' %>
+  </div>
+  <div class="back-container">
+    <%= link_to "Edit this fire", edit_fire_path(@fire), class: 'back-button'  %>
+  </div>
+  <div class="back-container">
+    <%= button_to "Destroy this fire", @fire, method: :delete, class: 'back-button'  %>
+  </div>
+</div>

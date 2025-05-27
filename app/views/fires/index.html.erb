@@ -1,11 +1,28 @@
-<div class="container">
-  <% @fires.each do |fire| %>
-    <div class="product">
-    <img src="<%="https://pbs.twimg.com/media/BxddNMZCcAAp7FK.jpg"%>" alt="">
-    <%= fire.maker %>
-    <%= link_to "Show this fire", fire %>
-    </div>
-  <% end %>
-</div>
+<!-- app/views/products/index.html.erb -->
+<div class="product-catalog">
+  <h1>Fire || <%= link_to "New fire", new_fire_path, class: "link-to" %></h1>
 
-<%= link_to "New fire", new_fire_path %>
+  <div class="product-grid">
+    <% @fires.each do |fire| %>
+       <%= link_to fire_path(fire), class: "product-card-link" do %>
+      <div class="product-card">
+        <div class="product-header">
+        <div class="product-image-container">
+          <% @images  = ["yellow.gif", "circle.gif", "spok.gif", "banana.gif"] %>
+          <% @random_no = rand(4) %>
+          <% @random_image = @images[@random_no] %>
+          <%= image_tag(@random_image, class: "product-image") %>
+
+        </div>
+          <h2 class="product-name"><%= fire.maker %></h2>
+          <span class="product-brand"><%= fire.model %></span>
+        </div>
+        <div class="product-details">
+          <p class="product-date">Comprado em: <%= fire.date %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

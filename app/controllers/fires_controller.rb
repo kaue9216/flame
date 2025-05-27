@@ -6,6 +6,9 @@ class FiresController < ApplicationController
 
   def show
     @fire = Fire.find(params[:id])
+    @images  = [ "yellow.gif", "circle.gif", "spok.gif", "banana.gif"]
+    @random_no = rand(4)
+    @random_image = @images[@random_no]
   end
 
   def edit

@@ -1,8 +1,38 @@
-<%= @fire.maker %>
+!-- app/views/products/new.html.erb -->
+<div class="pokemon-card-container">
+  <div class="pokemon-card pokemon-form-card">
+    <div class="card-header">
+      <h1 class="product-name"><%= @fire.maker %></h1>
+      <div class="hp-badge">
+        <span class="hp-value">UPDATE</span>
+      </div>
+    </div>
 
-<%= form_for @fire do |f| %>
-        <%= f.text_field :maker %>
-        <%= f.text_field :model %>
-        <%= f.text_field :date %>
-<%= f.submit %>
-<% end %>
+    <%= form_for @fire do |form| %>
+
+      <div class="card-details">
+        <div class="form-field">
+          <%= form.label :model, "Nome do Produto", class: "detail-label" %>
+          <%= form.text_field :model, class: "pokemon-input", placeholder: "Tipo de isqueiro" %>
+        </div>
+
+        <div class="form-field">
+          <%= form.label :maker, "Marca", class: "detail-label" %>
+          <%= form.text_field :maker, class: "pokemon-input", placeholder: "Marca do isqueiro" %>
+        </div>
+
+        <div class="form-field">
+          <%= form.label :date, "Data de Cadastro", class: "detail-label" %>
+          <%= form.text_field :date, class: "pokemon-input", placeholder: "Data da compra" %>
+        </div>
+
+        <!-- Adicione mais campos conforme necessário -->
+      </div>
+
+      <div class="card-footer form-actions">
+        <%= form.submit "Atualizar Isqueiro", class: "pokemon-button" %>
+        <%= link_to 'Cancelar', root_path, class: 'pokemon-button cancel' %>
+      </div>
+    <% end %>
+  </div>
+</div>
