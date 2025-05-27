@@ -1,0 +1,8 @@
+<%= @fire.maker %>
+
+<%= form_for @fire do |f| %>
+        <%= f.text_field :maker %>
+        <%= f.text_field :model %>
+        <%= f.text_field :date %>
+<%= f.submit %>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="container">
+  <% @fires.each do |fire| %>
+    <div class="product">
+    <img src="<%="https://pbs.twimg.com/media/BxddNMZCcAAp7FK.jpg"%>" alt="">
+    <%= fire.maker %>
+    <%= link_to "Show this fire", fire %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New fire", new_fire_path %>
